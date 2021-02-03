@@ -16,7 +16,7 @@ namespace ConsoleUI
             {
                 Console.WriteLine("{0} {1} {2}", car.Id, car.Description, car.DailyPrice);
             }
-
+            
             Car newCar = new Car()
             {
                 Id = 5,
