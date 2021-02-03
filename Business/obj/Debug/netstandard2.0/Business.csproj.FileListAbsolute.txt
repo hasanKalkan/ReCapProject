@@ -6,3 +6,9 @@ C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\DataAccess.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\Entities.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\Entities.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.csprojAssemblyReference.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.csproj.CopyComplete
