@@ -2,6 +2,7 @@
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DataAccess.Concrete.InMemory
@@ -23,27 +24,34 @@ namespace DataAccess.Concrete.InMemory
 
         public void Add(Car car)
         {
-            throw new NotImplementedException();
+            _car.Add(car);
         }
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            Car deleteCar = _car.SingleOrDefault(c => c.Id == car.Id);
+            _car.Remove(deleteCar);
         }
 
         public List<Car> GetAll()
         {
-            throw new NotImplementedException();
+            return _car;
         }
 
         public List<Car> GetById(int Id)
         {
-            throw new NotImplementedException();
+            return _car.Where(c => c.Id == Id).ToList();
         }
+
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            Car updateCar = _car.SingleOrDefault(c => c.Id == car.Id);
+            updateCar.BrandId = car.BrandId;
+            updateCar.ColorId = car.ColorId;
+            updateCar.DailyPrice = car.DailyPrice;
+            updateCar.ModelYear = car.ModelYear;
+            updateCar.Description = car.Description;
         }
     }
 }

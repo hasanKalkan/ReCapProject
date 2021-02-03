@@ -1,0 +1,8 @@
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\Business.deps.json
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\Business.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\bin\Debug\netstandard2.0\Business.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.AssemblyInfoInputs.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.AssemblyInfo.cs
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.csproj.CoreCompileInputs.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\Business\obj\Debug\netstandard2.0\Business.pdb

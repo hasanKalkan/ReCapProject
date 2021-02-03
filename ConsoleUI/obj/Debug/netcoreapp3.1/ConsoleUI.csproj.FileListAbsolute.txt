@@ -1,0 +1,13 @@
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.exe
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.deps.json
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.runtimeconfig.json
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.runtimeconfig.dev.json
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\ConsoleUI.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.csprojAssemblyReference.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.AssemblyInfoInputs.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.AssemblyInfo.cs
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.csproj.CoreCompileInputs.cache
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.pdb
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\obj\Debug\netcoreapp3.1\ConsoleUI.genruntimeconfig.cache
