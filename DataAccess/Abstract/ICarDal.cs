@@ -13,6 +13,6 @@ namespace DataAccess.Abstract
         void Add(Car car);
         void Update(Car car);
         void Delete(Car car);
-
+        object SingleOrDefault(Func<object, bool> p);
     }
 }
