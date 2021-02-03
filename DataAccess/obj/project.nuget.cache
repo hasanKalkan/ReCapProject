@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "2OaG3eV772dsG6zw3Etv8s5S37X5PlO8D+l+eLE2MmiEMNcWF1DZZOov45gykVcr8m1qx2TZ1qXx1plB+UWAQA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\KALKAN\\Documents\\GitHub\\ReCapProject\\DataAccess\\DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\KALKAN\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\KALKAN\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
