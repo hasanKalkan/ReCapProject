@@ -7,12 +7,10 @@ namespace DataAccess.Abstract
 {
     public interface ICarDal
     {
-        List<Car> GetById(int Id);
+        Car GetById(int Id);
         List<Car> GetAll();
-
         void Add(Car car);
         void Update(Car car);
         void Delete(Car car);
-        object SingleOrDefault(Func<object, bool> p);
     }
 }

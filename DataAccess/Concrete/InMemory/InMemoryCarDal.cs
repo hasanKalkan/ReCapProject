@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCarDal : ICarDal
+    public class InMemoryCarDal:ICarDal
     {
         List<Car> _car;
 
@@ -38,15 +38,13 @@ namespace DataAccess.Concrete.InMemory
             return _car;
         }
 
-        public List<Car> GetById(int Id)
+
+        public Car GetById(int id)
         {
-            return _car.Where(c => c.Id == Id).ToList();
+            return _car.SingleOrDefault(c => c.Id == id);
         }
 
-        public object SingleOrDefault(Func<object, bool> p)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public void Update(Car car)
         {
@@ -57,5 +55,7 @@ namespace DataAccess.Concrete.InMemory
             updateCar.ModelYear = car.ModelYear;
             updateCar.Description = car.Description;
         }
+
+       
     }
 }

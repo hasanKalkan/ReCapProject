@@ -9,7 +9,8 @@ namespace Business.Concrete
 {
     public class CarManager : ICarService
     {
-        ICarDal _carDal;
+         ICarDal _carDal;
+
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
@@ -30,5 +31,11 @@ namespace Business.Concrete
         {
             _carDal.Update(car);
         }
+
+        public Car GetById(int id)
+        {
+            return _carDal.GetById(id);
+        }
+
     }
 }

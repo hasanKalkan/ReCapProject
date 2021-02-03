@@ -11,12 +11,8 @@ namespace ConsoleUI
         {
             Console.WriteLine("------------Muscle Cars---------------");
             CarManager carManager = new CarManager(new InMemoryCarDal());
+            GetAll(carManager);
 
-            foreach (var car in carManager.GetAll())
-            {
-                Console.WriteLine("{0} {1} {2}", car.Id, car.Description, car.DailyPrice);
-            }
-            
             Car newCar = new Car()
             {
                 Id = 5,
@@ -27,10 +23,45 @@ namespace ConsoleUI
                 Description = "1978 Pontiac Firebird Trans Am"
             };
 
-            AddNewCar(carManager, newCar);
-            UpdateCar(carManager, newCar);
-            DeleteCar(carManager, newCar);
+             AddNewCar(carManager, newCar);
+             UpdateCar(carManager, newCar);
+             DeleteCar(carManager, newCar);
 
+
+
+            Car myCar = new Car();
+            myCar = carManager.GetById(1); //1 numaralı id si olan araç seçilerek updateCar nesnesine atanır.
+
+            UpdateIdCar(carManager, myCar);
+            DeleteIdCar(carManager, myCar);
+
+        }
+
+        private static void DeleteIdCar(CarManager carManager, Car myCar)
+        {
+            carManager.Delete(myCar);
+            Console.WriteLine("\n-----------After Delete Car With Id----------------");
+            GetAll(carManager);
+        }
+
+        private static void UpdateIdCar(CarManager carManager, Car myCar)
+        {
+            myCar.BrandId = 4;
+            myCar.ColorId = 3;
+            myCar.ModelYear = 1974;
+            myCar.DailyPrice = 140000;
+            myCar.Description = "1974 Dodge Challenger R/T 360 Four-Barrel";
+            carManager.Update(myCar);
+            Console.WriteLine("\n-----------After Update Car With Id------------------");
+            GetAll(carManager);
+        }
+
+        private static void GetAll(CarManager carManager)
+        {
+            foreach (var car in carManager.GetAll())
+            {
+                Console.WriteLine("{0} {1} {2}", car.Id, car.Description, car.DailyPrice);
+            }
         }
 
         private static void DeleteCar(CarManager carManager, Car newCar)
