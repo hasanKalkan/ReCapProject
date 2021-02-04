@@ -15,7 +15,7 @@ namespace ConsoleUI
             Console.WriteLine("Markalar--------------");
             foreach (var brand in brandManager.GetAll())
             {
-                Console.WriteLine("Marka İsmi: " + brand.BrandName);
+                Console.WriteLine("Marka İsmi: " + brand.Name);
             }
 
 

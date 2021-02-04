@@ -19,7 +19,7 @@ namespace Business.Concrete
             try
             {
                 _brandDal.Add(brand);
-                Console.WriteLine(brand.BrandName+" markası sisteme başarıyla eklendi.") ;
+                Console.WriteLine(brand.Name+" markası sisteme başarıyla eklendi.") ;
                     
             }
             catch (Exception e)
