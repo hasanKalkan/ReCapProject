@@ -10,11 +10,8 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-
-            //brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
+            brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
             Console.WriteLine("Markalar--------------");
             foreach (var brand in brandManager.GetAll())
             {
@@ -22,28 +19,28 @@ namespace ConsoleUI
             }
 
 
-            
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            colorManager.Add(new Color { Id = 5, Name = "Siyah" });
             Console.WriteLine("\nRenkler--------------");
             foreach (var color in colorManager.GetAll())
             {
                 Console.WriteLine("Renk Adı: " + color.Name);
             }
-            colorManager.Add(new Color { Id = 5, Name = "Siyah" });
+            
 
-
-
-
-            //carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 1500, Description = "Dodge Charger", Id = 6, ModelYear = 1969 });
-            Car silinecekAraba = new Car { Id = 6 };
-           // carManager.Delete(silinecekAraba);
+            CarManager carManager = new CarManager(new EfCarDal());
+            carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 1500, Description = "Dodge Charger", Id = 6, ModelYear = 1969 });            
             Console.WriteLine("\nAraçlar-----------");
             foreach (var car in carManager.GetAll())
             {
                 Console.WriteLine("Model:  " + car.Description + ", Üretim Yılı: " + car.ModelYear + ", Günlük Ücreti:  " + car.DailyPrice+" TL");
             }
-            Console.ReadLine();
+            Console.ReadKey();
+           
+            Car silinecekAraba = new Car { Id = 6 };
+            carManager.Delete(silinecekAraba); 
+           
             // OldCodes();
-
         }
 
         private static void OldCodes()
