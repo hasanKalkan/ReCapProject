@@ -16,14 +16,33 @@ namespace Business.Concrete
         }
         public void Add(Car car)
         {
-            if (car.Description.Length < 2 && car.DailyPrice == 0)
+            try
             {
-                Console.WriteLine("Geçersiz araba");
+                if (car.Description.Length < 2)
+                {
+                    Console.WriteLine("Araç tanımı iki karakterden küçük olmamalı!");
+
+                }
+                else
+                {
+                    if (car.DailyPrice <= 0)
+                    {
+                        Console.WriteLine("Araç günlük kiralama bedeli 0 dan büyük olmalı!");
+                    }
+                    else
+                    {
+                        _carDal.Add(car);
+                        Console.WriteLine("Araç başarıyla sisteme eklendi." + car.Description);
+                    }
+                }
             }
-            else
+            catch (Exception e)
             {
-                _carDal.Add(car);
+                Console.WriteLine("Hata!. Kayıt eklenemedi.\n"+e.Message);
             }
+
+
+          
         }
 
         public void Delete(Car car)

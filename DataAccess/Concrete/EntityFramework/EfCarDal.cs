@@ -13,6 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Car entity)
         {
+           
             using (ReCapProjectContext context = new ReCapProjectContext())
             {
                 var addedEntity = context.Entry(entity);
