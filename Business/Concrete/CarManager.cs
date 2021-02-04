@@ -37,5 +37,9 @@ namespace Business.Concrete
             return _carDal.GetById(id);
         }
 
+        public List<Car> GetAllById(int id)
+        {
+            return _carDal.GetAll(c => c.Id == id);
+        }
     }
 }
