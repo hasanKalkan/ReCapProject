@@ -11,7 +11,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
+          //  brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
             Console.WriteLine("Markalar--------------");
             foreach (var brand in brandManager.GetAll())
             {
@@ -20,7 +20,7 @@ namespace ConsoleUI
 
 
             ColorManager colorManager = new ColorManager(new EfColorDal());
-            colorManager.Add(new Color { Id = 5, Name = "Siyah" });
+           // colorManager.Add(new Color { Id = 5, Name = "Siyah" });
             Console.WriteLine("\nRenkler--------------");
             foreach (var color in colorManager.GetAll())
             {
@@ -29,7 +29,7 @@ namespace ConsoleUI
             
 
             CarManager carManager = new CarManager(new EfCarDal());
-            carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 1500, Description = "Dodge Charger", Id = 6, ModelYear = 1969 });            
+           // carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 1500, Description = "Dodge Charger", Id = 6, ModelYear = 1969 });            
             Console.WriteLine("\nAraçlar-----------");
             foreach (var car in carManager.GetAll())
             {
@@ -38,7 +38,7 @@ namespace ConsoleUI
             Console.ReadKey();
            
             Car silinecekAraba = new Car { Id = 6 };
-            carManager.Delete(silinecekAraba); 
+           // carManager.Delete(silinecekAraba); 
            
             // OldCodes();
         }
