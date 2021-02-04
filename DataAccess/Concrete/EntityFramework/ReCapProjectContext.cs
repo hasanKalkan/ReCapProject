@@ -15,8 +15,8 @@ namespace DataAccess.Concrete.EntityFramework
             //trusted ile integrated security aynı
         }
 
-        public DbSet<Car> Products { get; set; }
-        public DbSet<Color> Categories { get; set; }
-        public DbSet<Brand> Customers { get; set; }
+        public DbSet<Car> Car { get; set; }
+        public DbSet<Color> Color { get; set; }
+        public DbSet<Brand> Brand { get; set; }
     }
 }
