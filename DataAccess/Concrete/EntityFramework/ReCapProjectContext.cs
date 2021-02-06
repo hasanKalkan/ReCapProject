@@ -18,5 +18,17 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Car> Cars { get; set; }
         public DbSet<Color> Colors { get; set; }
         public DbSet<Brand> Brands { get; set; }
+
+
+        //Custom Mapping
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //fluent mapping
+            // modelBuilder.HasDefaultSchema("admin"); //Default şema
+            //modelBuilder.Entity<Personel>().ToTable("Employees"); //Employees tablosunu Personel tablosu olarak bağla.
+            //modelBuilder.Entity<Personel>().Property(p => p.Id).HasColumnName("EmployeeID"); //Sadece bir alanın ismini bağladık.
+            //modelBuilder.Entity<Personel>().Property(p => p.Name).HasColumnName("FirstName"); //ilk bizim class taki isim
+            //modelBuilder.Entity<Personel>().Property(p => p.SurName).HasColumnName("LasttName"); //ikincisi de veri tabanındaki isim
+        }
     }
 }
