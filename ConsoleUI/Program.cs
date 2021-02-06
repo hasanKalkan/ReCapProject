@@ -35,8 +35,21 @@ namespace ConsoleUI
             {
                 Console.WriteLine("Model:  " + car.Description + ", Üretim Yılı: " + car.ModelYear + ", Günlük Ücreti:  " + car.DailyPrice+" TL");
             }
-            Console.ReadKey();
            
+
+            Console.WriteLine("\nMarka Id No 2 Olan Araçlar ");
+            foreach (var car in carManager.GetCarsByBrandId(2))
+            {
+                Console.WriteLine("Marka Id: "+car.BrandId+", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
+            }
+
+            Console.WriteLine("\nColor Id No 5 Olan Araçlar ");
+            foreach (var car in carManager.GetCarsByColorId(5))
+            {
+                Console.WriteLine("Color Id: " + car.ColorId + ", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
+            }
+
+
             Car silinecekAraba = new Car { Id = 6 };
            // carManager.Delete(silinecekAraba); 
            

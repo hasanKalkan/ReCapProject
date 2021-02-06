@@ -32,6 +32,14 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
+        public Car Get(Expression<Func<Car, bool>> filter)
+        {
+            using(ReCapProjectContext context=new ReCapProjectContext())
+            {
+                return context.Set<Car>().SingleOrDefault(filter);
+            }
+        }
+
         public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
         {
             using (ReCapProjectContext context = new ReCapProjectContext())

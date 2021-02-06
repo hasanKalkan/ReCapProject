@@ -40,8 +40,7 @@ namespace Business.Concrete
         {
             return _colorDal.GetAll();
         }
-
-        
+                
 
         public void Update(Color color)
         {
