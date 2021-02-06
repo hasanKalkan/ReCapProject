@@ -41,6 +41,8 @@ namespace DataAccess.Concrete.EntityFramework
             }
         }
 
+        //public List<Car> GetById
+
         public void Update(Car entity)
         {
             using (ReCapProjectContext context = new ReCapProjectContext())
