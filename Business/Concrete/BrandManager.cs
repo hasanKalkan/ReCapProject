@@ -9,7 +9,7 @@ namespace Business.Concrete
 {
     public class BrandManager : IBrandService
     {
-        IBrandDal _brandDal;
+        private IBrandDal _brandDal;
         public BrandManager(IBrandDal brandDal)
         {
             _brandDal = brandDal;
@@ -19,16 +19,13 @@ namespace Business.Concrete
             try
             {
                 _brandDal.Add(brand);
-                Console.WriteLine(brand.Name+" markası sisteme başarıyla eklendi.") ;
-                    
+                Console.WriteLine(brand.Name + " markası sisteme başarıyla eklendi.");
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("Hata!. Kayıt eklenemedi.\n"+e.Message);
+                Console.WriteLine("Hata!. Kayıt eklenemedi.\n" + e.Message);
             }
-
-
-          
         }
 
         public void Delete(Brand brand)
@@ -38,7 +35,12 @@ namespace Business.Concrete
 
         public List<Brand> GetAll()
         {
-            return _brandDal.GetAll();
+            return _brandDal.GetAll(b=>b.Name.Length>4);
+        }
+
+        public Brand GetById(int Id)
+        {
+            return _brandDal.GetById(b => b.Id == Id);
         }
 
         public void Update(Brand brand)

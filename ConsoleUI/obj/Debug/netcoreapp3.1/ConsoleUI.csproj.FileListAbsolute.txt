@@ -49,3 +49,7 @@ C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\Core.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\ConsoleUI\bin\Debug\netcoreapp3.1\Core.pdb

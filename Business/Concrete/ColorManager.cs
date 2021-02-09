@@ -9,7 +9,7 @@ namespace Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        IColorDal _colorDal;
+        private IColorDal _colorDal;
         public ColorManager(IColorDal colorDal)
         {
             _colorDal = colorDal;
@@ -40,7 +40,12 @@ namespace Business.Concrete
         {
             return _colorDal.GetAll();
         }
-                
+
+        public Color GetById(int Id)
+        {
+            return _colorDal.GetById(c => c.Id == Id);
+
+        }
 
         public void Update(Color color)
         {

@@ -1,6 +1,5 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
-using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
 
@@ -10,53 +9,58 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-          //  brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
-            Console.WriteLine("Markalar--------------");
-            foreach (var brand in brandManager.GetAll())
-            {
-                Console.WriteLine("Marka İsmi: " + brand.Name);
-            }
-
-
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-           // colorManager.Add(new Color { Id = 5, Name = "Siyah" });
-            Console.WriteLine("\nRenkler--------------");
-            foreach (var color in colorManager.GetAll())
-            {
-                Console.WriteLine("Renk Adı: " + color.Name);
-            }
-            
-
             CarManager carManager = new CarManager(new EfCarDal());
-           // carManager.Add(new Car { BrandId = 2, ColorId = 3, DailyPrice = 1500, Description = "Dodge Charger", Id = 6, ModelYear = 1969 });            
+            carManager.Add(new Car { BrandId = 1, ColorId = 2, DailyPrice = 1800, Description = "Ford Torino", Id = 6, ModelYear = 1965 });
             Console.WriteLine("\nAraçlar-----------");
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine("Model:  " + car.Description + ", Üretim Yılı: " + car.ModelYear + ", Günlük Ücreti:  " + car.DailyPrice+" TL");
-            }
-           
-
-            Console.WriteLine("\nMarka Id No 2 Olan Araçlar ");
-            foreach (var car in carManager.GetCarsByBrandId(2))
-            {
-                Console.WriteLine("Marka Id: "+car.BrandId+", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
-            }
-
-            Console.WriteLine("\nColor Id No 5 Olan Araçlar ");
-            foreach (var car in carManager.GetCarsByColorId(5))
-            {
-                Console.WriteLine("Color Id: " + car.ColorId + ", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
+                Console.WriteLine("Model:  " + car.Description + ", Üretim Yılı: " + car.ModelYear + ", Günlük Ücreti:  " + car.DailyPrice + " TL");
             }
 
 
-            Car silinecekAraba = new Car { Id = 6 };
-           // carManager.Delete(silinecekAraba); 
-           
+
+
+            //  BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ////  brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
+            //  Console.WriteLine("Markalar--------------");
+            //  foreach (var brand in brandManager.GetAll())
+            //  {
+            //      Console.WriteLine("Marka İsmi: " + brand.Name);
+            //  }
+
+
+            //ColorManager colorManager = new ColorManager(new EfColorDal());
+            //colorManager.Add(new Color { Id = 5, Name = "Siyah" });
+            //Console.WriteLine("\nRenkler--------------");
+            //foreach (var color in colorManager.GetAll())
+            //{
+            //    Console.WriteLine("Renk Adı: " + color.Name);
+            //}
+
+
+
+
+
+            //Console.WriteLine("\nMarka Id No 2 Olan Araçlar ");
+            //foreach (var car in carManager.GetCarsByBrandId(2))
+            //{
+            //    Console.WriteLine("Marka Id: "+car.BrandId+", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
+            //}
+
+            //Console.WriteLine("\nColor Id No 5 Olan Araçlar ");
+            //foreach (var car in carManager.GetCarsByColorId(5))
+            //{
+            //    Console.WriteLine("Color Id: " + car.ColorId + ", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
+            //}
+
+
+            //Car silinecekAraba = new Car { Id = 2 };
+            // carManager.Delete(silinecekAraba); 
+
             // OldCodes();
         }
 
-        private static void OldCodes()
+      /*  private static void OldCodes()
         {
             Console.WriteLine("------------Muscle Cars---------------");
             CarManager carManager = new CarManager(new InMemoryCarDal());
@@ -83,7 +87,7 @@ namespace ConsoleUI
 
             UpdateIdCar(carManager, myCar);
             DeleteIdCar(carManager, myCar);
-        }
+        }*/
 
         private static void DeleteIdCar(CarManager carManager, Car myCar)
         {
