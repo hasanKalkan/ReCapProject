@@ -33,7 +33,7 @@ namespace Business.Concrete
                     else
                     {
                         _carDal.Add(car);
-                        Console.WriteLine("Araç başarıyla sisteme eklendi." + car.Description);
+                        Console.WriteLine("\n{0} araç başarıyla sisteme eklendi.", car.Description);
                     }
                 }
             }
@@ -48,7 +48,16 @@ namespace Business.Concrete
 
         public void Delete(Car car)
         {
-            _carDal.Delete(car);
+            try
+            {
+                _carDal.Delete(car);
+                Console.WriteLine("\n{0} araç başarıyla sistemden silindi.", car.Description);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Hata!. Kayıt eklenemedi.\n" + e.Message);
+            }
         }
 
         public List<Car> GetAll()
@@ -80,7 +89,17 @@ namespace Business.Concrete
 
         public void Update(Car car)
         {
-            _carDal.Update(car);
+
+            try
+            {
+                _carDal.Update(car);
+                Console.WriteLine(" {0} olarak güncellendi.", car.Description);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Hata!. Kayıt eklenemedi.\n" + e.Message);
+            }
         }
     }
 }
