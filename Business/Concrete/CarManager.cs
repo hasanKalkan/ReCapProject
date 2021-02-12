@@ -1,4 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Entities;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -15,90 +18,61 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
-        public void Add(Car car)
+
+        public IResult Add(Car car)
         {
-            try
+            if (car.Description.Length > 2 && car.DailyPrice>0)
             {
-                if (car.Description.Length < 2)
-                {
-                    Console.WriteLine("Araç tanımı iki karakterden küçük olmamalı!");
-
-                }
-                else
-                {
-                    if (car.DailyPrice <= 0)
-                    {
-                        Console.WriteLine("Araç günlük kiralama bedeli 0 dan büyük olmalı!");
-                    }
-                    else
-                    {
-                        _carDal.Add(car);
-                        Console.WriteLine("\n{0} araç başarıyla sisteme eklendi.", car.Description);
-                    }
-                }
+                _carDal.Add(car);
+                return new SuccessResult(Messages.CarAdded);
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("Hata!. Kayıt eklenemedi.\n"+e.Message);
-            }
-
-
-          
-        }
-
-        public void Delete(Car car)
-        {
-            try
-            {
-                _carDal.Delete(car);
-                Console.WriteLine("\n{0} araç başarıyla sistemden silindi.", car.Description);
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Hata!. Kayıt eklenemedi.\n" + e.Message);
+                return new ErrorResult(Messages.CarNameInvalid);
             }
         }
 
-        public List<Car> GetAll()
+        public IResult Delete(Car car)
         {
-            return _carDal.GetAll(c=>c.DailyPrice>50);
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
-        public Car GetById(int Id)
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetById(c => c.Id == Id);
+            if (DateTime.Now.Hour == 22)
+            {
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll());
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<Car>> GetByBrandId(int id)
         {
-            return _carDal.GetCarDetails();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id));
         }
 
-
-
-        //public List<Car> GetCarsByBrandId(int brandId)
-        //{
-        //    return _carDal.GetAll(c => c.BrandId == brandId);
-        //}
-
-        //public List<Car> GetCarsByColorId(int colorId)
-        //{
-        //    return _carDal.GetAll(c => c.ColorId == colorId);
-        //}
-
-        public void Update(Car car)
+        public IDataResult<List<Car>> GetByColorId(int id)
         {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+        }
 
-            try
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
+
+        }
+
+        public IResult Update(Car car)
+        {
+            if (car.Description.Length > 2 && car.DailyPrice > 0)
             {
                 _carDal.Update(car);
-                Console.WriteLine(" {0} olarak güncellendi.", car.Description);
-
+                return new SuccessResult(Messages.CarUpdated);
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("Hata!. Kayıt eklenemedi.\n" + e.Message);
+                return new ErrorResult(Messages.ColorNameInvalid);
             }
         }
     }
