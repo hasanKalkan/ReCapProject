@@ -9,15 +9,15 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-
-            CarManager carManager = new CarManager(new EfCarDal());
+            Car newCar = new Car() {BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
+            CarManager carManager = new CarManager(new EfCarDal(),new CheckRules());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
+
 
             Console.WriteLine("ARAÇLAR--------------");
             ListCars(carManager);
 
-            Car newCar = new Car() { Id = 5, BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
             carManager.Add(newCar);
             Console.WriteLine("\n"+newCar.Description+" eklendi.");
             ListCars(carManager);
@@ -66,11 +66,9 @@ namespace ConsoleUI
 
             brandManager.Delete(newBrand);
             Console.WriteLine("\n"+newBrand.Name+" silindi");
-            ListBrands(brandManager);
-
-
-        
+            ListBrands(brandManager);        
         }
+
 
         private static void ListCars(CarManager carManager)
         {
