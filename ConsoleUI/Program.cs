@@ -15,60 +15,63 @@ namespace ConsoleUI
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
             Console.WriteLine("-----------------ARABALAR--------------");
-            //carManager.Add(new Car { Id = 5,BrandId=1, ColorId=9,ModelYear=1965,DailyPrice=200,Description="Ford Galaxy" });
-            //carManager.Update(new Car { Id = 3002,BrandId = 5, ColorId = 8, ModelYear = 1978, DailyPrice = 105, Description = "Doğan SLX" });
-            //carManager.Delete(new Car { Id = 3002 });
-            CarListed(carManager);
+            ListCars(carManager);
+
+            Car newCar = new Car() { Id = 5, BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
+            Console.WriteLine("\n-----------------ARABA EKLENDİ--------------");
+            carManager.Add(newCar);
+            ListCars(carManager);
+
+            Console.WriteLine("\n-----------------ARABA GÜNCELLENDİ--------------");
+            newCar.DailyPrice = 2200;
+            carManager.Update(newCar);
+            ListCars(carManager);
+
+
+            Console.WriteLine("\n-----------------ARABA SİLİNDİ--------------");
+            carManager.Delete(newCar);
+            ListCars(carManager);
 
             Console.WriteLine("\n-----------------RENKLER----------------");
-            //colorManager.Add(new Color { ColorName = "Dark Red" });
-            //colorManager.Update(new Color { ColorId = 1013, ColorName = "Dark Yellow" });
-            //colorManager.Delete(new Color { ColorId = 12 });
-            ColorListed(colorManager);
+            ListColors(colorManager);
 
-            Console.WriteLine("\n----------------MARKALAR------------------");
-            //brandManager.Add(new Brand { BrandName = "Ş" });
-            //brandManager.Update(new Brand { BrandId = 7, BrandName = "Doğan" });
-            //brandManager.Delete(new Brand { BrandId = 1006 });
-            BrandListed(brandManager);
+            Color newColor = new Color() {Id=8, Name="Kahverengi" };
+            colorManager.Add(newColor);
+            Console.WriteLine("\n\n-----------------RENK EKLENDİ----------------");
+            ListColors(colorManager);
 
+            newColor.Name = "Lacivert";
+            colorManager.Update(newColor);
+            Console.WriteLine("\n\n------------------RENK GÜNCELLENDİ----------------");
+            ListColors(colorManager);
 
+            colorManager.Delete(newColor);
+            Console.WriteLine("\n\n------------------RENK SİLİNDİ----------------");
+            ListColors(colorManager);
 
-            //  OldCodes2();
+            Console.WriteLine("\n\n----------------MARKALAR------------------");
+            ListBrands(brandManager);
 
-            //  BrandManager brandManager = new BrandManager(new EfBrandDal());
-            ////  brandManager.Add(new Brand { BrandId = 2, BrandName = "Dodge" });
-            //  Console.WriteLine("Markalar--------------");
-            //  foreach (var brand in brandManager.GetAll())
-            //  {
-            //      Console.WriteLine("Marka İsmi: " + brand.Name);
-            //  }
+            Brand newBrand = new Brand() { Id = 6, Name = "Datsun" };
+            brandManager.Add(newBrand);
+            Console.WriteLine("\n\n-----------------MARKA EKLENDİ----------------");
+            ListBrands(brandManager);
 
-            //ColorManager colorManager = new ColorManager(new EfColorDal());
-            //colorManager.Add(new Color { Id = 5, Name = "Siyah" });
-            //Console.WriteLine("\nRenkler--------------");
-            //foreach (var color in colorManager.GetAll())
-            //{
-            //    Console.WriteLine("Renk Adı: " + color.Name);
-            //}
+            newBrand.Name = "Plymouth";
+            brandManager.Update(newBrand);
+            Console.WriteLine("\n\n------------------MARKA GÜNCELLENDİ----------------");
+            ListBrands(brandManager);
 
 
-            //Console.WriteLine("\nMarka Id No 2 Olan Araçlar ");
-            //foreach (var car in carManager.GetCarsByBrandId(2))
-            //{
-            //    Console.WriteLine("Marka Id: "+car.BrandId+", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
-            //}
+            brandManager.Delete(newBrand);
+            Console.WriteLine("\n\n------------------MARKA SİLİNDİ----------------");
+            ListBrands(brandManager);
 
-            //Console.WriteLine("\nColor Id No 5 Olan Araçlar ");
-            //foreach (var car in carManager.GetCarsByColorId(5))
-            //{
-            //    Console.WriteLine("Color Id: " + car.ColorId + ", model: " + car.Description + ", üretim Yılı. " + car.ModelYear + ", Günlük Ücreti: " + car.DailyPrice + "TL");
-            //}
 
-            // OldCodes();
+        
         }
 
-        private static void CarListed(CarManager carManager)
+        private static void ListCars(CarManager carManager)
         {
             var result = carManager.GetCarDetails();
             if (result.Success)
@@ -84,7 +87,7 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
         }
-        private static void ColorListed(ColorManager colorManager)
+        private static void ListColors(ColorManager colorManager)
         {
             var result = colorManager.GetAll();
             if (result.Success)
@@ -100,7 +103,7 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
         }
-        private static void BrandListed(BrandManager brandManager)
+        private static void ListBrands(BrandManager brandManager)
         {
             var result = brandManager.GetAll();
             if (result.Success)
@@ -109,7 +112,7 @@ namespace ConsoleUI
                 {
                     Console.Write(brand.Name+", ");
                 }
-
+                Console.WriteLine(result.Message);
             }
             else
             {
