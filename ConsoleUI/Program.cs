@@ -14,57 +14,58 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 
-            Console.WriteLine("-----------------ARABALAR--------------");
+            Console.WriteLine("ARAÇLAR--------------");
             ListCars(carManager);
 
             Car newCar = new Car() { Id = 5, BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
-            Console.WriteLine("\n-----------------ARABA EKLENDİ--------------");
             carManager.Add(newCar);
+            Console.WriteLine("\n"+newCar.Description+" eklendi.");
             ListCars(carManager);
 
-            Console.WriteLine("\n-----------------ARABA GÜNCELLENDİ--------------");
+            
             newCar.DailyPrice = 2200;
             carManager.Update(newCar);
+            Console.WriteLine("\n"+newCar.Description+" günlük kiralama bedeli "+newCar.DailyPrice+" TL olarak güncellendi.");
             ListCars(carManager);
 
-
-            Console.WriteLine("\n-----------------ARABA SİLİNDİ--------------");
+                        
             carManager.Delete(newCar);
+            Console.WriteLine("\n"+newCar.Description+" silindi.");
             ListCars(carManager);
 
-            Console.WriteLine("\n-----------------RENKLER----------------");
+            Console.WriteLine("\nRENKLER----------------");
             ListColors(colorManager);
 
             Color newColor = new Color() {Id=8, Name="Kahverengi" };
             colorManager.Add(newColor);
-            Console.WriteLine("\n\n-----------------RENK EKLENDİ----------------");
+            Console.WriteLine("\n\n"+newColor.Name+" eklendi.");
             ListColors(colorManager);
 
             newColor.Name = "Lacivert";
             colorManager.Update(newColor);
-            Console.WriteLine("\n\n------------------RENK GÜNCELLENDİ----------------");
+            Console.WriteLine("\n\n"+newColor.Name+" olarak güncellendi.");
             ListColors(colorManager);
 
             colorManager.Delete(newColor);
-            Console.WriteLine("\n\n------------------RENK SİLİNDİ----------------");
+            Console.WriteLine("\n\n"+newColor.Name+" silindi.");
             ListColors(colorManager);
 
-            Console.WriteLine("\n\n----------------MARKALAR------------------");
+            Console.WriteLine("\n\nMARKALAR------------------");
             ListBrands(brandManager);
 
             Brand newBrand = new Brand() { Id = 6, Name = "Datsun" };
             brandManager.Add(newBrand);
-            Console.WriteLine("\n\n-----------------MARKA EKLENDİ----------------");
+            Console.WriteLine("\n"+newBrand.Name+" eklendi.");
             ListBrands(brandManager);
 
             newBrand.Name = "Plymouth";
             brandManager.Update(newBrand);
-            Console.WriteLine("\n\n------------------MARKA GÜNCELLENDİ----------------");
+            Console.WriteLine("\n"+newBrand.Name+ " olarak güncellendi.");
             ListBrands(brandManager);
 
 
             brandManager.Delete(newBrand);
-            Console.WriteLine("\n\n------------------MARKA SİLİNDİ----------------");
+            Console.WriteLine("\n"+newBrand.Name+" silindi");
             ListBrands(brandManager);
 
 
