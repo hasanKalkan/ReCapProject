@@ -9,66 +9,119 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Car newCar = new Car() {BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
-            CarManager carManager = new CarManager(new EfCarDal(),new CheckRules());
+
+            CarManager carManager = new CarManager(new EfCarDal(), new CheckRules());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
+            UserManager userManager = new UserManager(new EfUserDal());
+            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal(), new EfCarDal());
+
+            CarOperations(carManager);
+            ColorOperations(colorManager);
+            BrandOperations(brandManager);
+            UserOperations(userManager);
+
+        }
+
+        private static void UserOperations(UserManager userManager)
+        {
+            User newUser = new User()
+            {
+                FirstName = "Ali",
+                LastName = "Can",
+                Email = "alican@gmail.com",
+                Password = "123456"
+            };
+
+            Console.WriteLine("\nKULLANICILAR-------");
+            ListUsers(userManager);
+
+            userManager.Add(newUser);
+            Console.WriteLine("\n" + newUser.FirstName + " eklendi.");
+            ListUsers(userManager);
 
 
-            Console.WriteLine("ARAÇLAR--------------");
-            ListCars(carManager);
+            newUser.Email = "alican@hotmail.com";
+            userManager.Update(newUser);
+            Console.WriteLine("\nMail adresi " + newUser.Email + " olarak güncellendi.");
+            ListUsers(userManager);
 
-            carManager.Add(newCar);
-            Console.WriteLine("\n"+newCar.Description+" eklendi.");
-            ListCars(carManager);
 
-            
-            newCar.DailyPrice = 2200;
-            carManager.Update(newCar);
-            Console.WriteLine("\n"+newCar.Description+" günlük kiralama bedeli "+newCar.DailyPrice+" TL olarak güncellendi.");
-            ListCars(carManager);
+            userManager.Delete(newUser);
+            Console.WriteLine("\n" + newUser.FirstName + " silindi");
+            ListUsers(userManager);
+        }
 
-                        
-            carManager.Delete(newCar);
-            Console.WriteLine("\n"+newCar.Description+" silindi.");
-            ListCars(carManager);
-
-            Console.WriteLine("\nRENKLER----------------");
-            ListColors(colorManager);
-
-            Color newColor = new Color() {Id=8, Name="Kahverengi" };
-            colorManager.Add(newColor);
-            Console.WriteLine("\n\n"+newColor.Name+" eklendi.");
-            ListColors(colorManager);
-
-            newColor.Name = "Lacivert";
-            colorManager.Update(newColor);
-            Console.WriteLine("\n\n"+newColor.Name+" olarak güncellendi.");
-            ListColors(colorManager);
-
-            colorManager.Delete(newColor);
-            Console.WriteLine("\n\n"+newColor.Name+" silindi.");
-            ListColors(colorManager);
-
+        private static void BrandOperations(BrandManager brandManager)
+        {
             Console.WriteLine("\n\nMARKALAR------------------");
             ListBrands(brandManager);
 
-            Brand newBrand = new Brand() { Id = 6, Name = "Datsun" };
+            Brand newBrand = new Brand() { Name = "Datsun" };
             brandManager.Add(newBrand);
-            Console.WriteLine("\n"+newBrand.Name+" eklendi.");
+            Console.WriteLine("\n" + newBrand.Name + " eklendi.");
             ListBrands(brandManager);
 
             newBrand.Name = "Plymouth";
             brandManager.Update(newBrand);
-            Console.WriteLine("\n"+newBrand.Name+ " olarak güncellendi.");
+            Console.WriteLine("\n" + newBrand.Name + " olarak güncellendi.");
             ListBrands(brandManager);
 
-
             brandManager.Delete(newBrand);
-            Console.WriteLine("\n"+newBrand.Name+" silindi");
-            ListBrands(brandManager);        
+            Console.WriteLine("\n" + newBrand.Name + " silindi");
+            ListBrands(brandManager);
         }
 
+        private static void ColorOperations(ColorManager colorManager)
+        {
+            Console.WriteLine("\nRENKLER----------------");
+            ListColors(colorManager);
+
+            Color newColor = new Color() { Name = "Kahverengi" };
+            colorManager.Add(newColor);
+            Console.WriteLine("\n\n" + newColor.Name + " eklendi.");
+            ListColors(colorManager);
+
+            newColor.Name = "Lacivert";
+            colorManager.Update(newColor);
+            Console.WriteLine("\n\n" + newColor.Name + " olarak güncellendi.");
+            ListColors(colorManager);
+
+            colorManager.Delete(newColor);
+            Console.WriteLine("\n\n" + newColor.Name + " silindi.");
+            ListColors(colorManager);
+        }
+
+        private static void CarOperations(CarManager carManager)
+        {
+            Car newCar = new Car() { BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
+            Console.WriteLine("ARAÇLAR--------------");
+            ListCars(carManager);
+
+            carManager.Add(newCar);
+            Console.WriteLine("\n" + newCar.Description + " eklendi.");
+            ListCars(carManager);
+
+
+            newCar.DailyPrice = 2200;
+            carManager.Update(newCar);
+            Console.WriteLine("\n" + newCar.Description + " günlük kiralama bedeli " + newCar.DailyPrice + " TL olarak güncellendi.");
+            ListCars(carManager);
+
+
+            carManager.Delete(newCar);
+            Console.WriteLine("\n" + newCar.Description + " silindi.");
+            ListCars(carManager);
+        }
+
+        private static void ListUsers(UserManager userManager)
+        {
+            foreach (var user in userManager.GetAll().Data)
+            {
+                Console.WriteLine("Ad: {0}, soyad: {1}, email: {2}", user.FirstName, user.LastName,user.Email);
+            }
+        }
 
         private static void ListCars(CarManager carManager)
         {
@@ -79,7 +132,6 @@ namespace ConsoleUI
                 {
                     Console.WriteLine("Id: {0}, {1}, Renk: {2}, Marka: {3}, Model Yılı: {4}, Günlük Kiralama Bedeli: {5} TL.",car.Id,car.Description,car.ColorName,car.BrandName,car.ModelYear,car.DailyPrice);
                 }
-
             }
             else
             {

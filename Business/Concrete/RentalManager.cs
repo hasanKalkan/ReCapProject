@@ -19,8 +19,9 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
             _carDal = carDal;
         }
-        public IResult Add(Rental rental, Car car)
+        public IResult Add(Rental rental)
         {
+            Car car = _carDal.Get(c => c.Id == rental.CarId);
             if (car.IsAvailable == false)
             {
                 return new ErrorResult(Messages.CarIsNotAvailable);
