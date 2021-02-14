@@ -17,11 +17,32 @@ namespace ConsoleUI
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal(), new EfCarDal());
 
-           // CarOperations(carManager);
-           // ColorOperations(colorManager);
-           // BrandOperations(brandManager);
-            UserOperations(userManager);
+            // CarOperations(carManager);
+            // ColorOperations(colorManager);
+            // BrandOperations(brandManager);
+            //UserOperations(userManager);
+            //CustomerOperations(customerManager);
 
+        }
+
+        private static void CustomerOperations(CustomerManager customerManager)
+        {
+            Customer newCustomer = new Customer()
+            {
+                CompanyName = "CanYazılım",
+                UserId = 18
+            };
+
+            Console.WriteLine("\nMÜŞTERİLER-------");
+            ListCustomers(customerManager);
+
+            customerManager.Add(newCustomer);
+            Console.WriteLine("\n" + newCustomer.CompanyName + " eklendi.");
+            ListCustomers(customerManager);
+
+            customerManager.Add(new Customer() { CompanyName = "KodlamaIO", UserId = 19 });
+            Console.WriteLine("KodlamaIO eklendi.");
+            ListCustomers(customerManager);
         }
 
         private static void UserOperations(UserManager userManager)
@@ -124,6 +145,14 @@ namespace ConsoleUI
             foreach (var user in userManager.GetAll().Data)
             {
                 Console.WriteLine("Ad: {0}, soyad: {1}, email: {2}", user.FirstName, user.LastName,user.Email);
+            }
+        }
+
+        private static void ListCustomers(CustomerManager customerManager)
+        {
+            foreach (var customer in customerManager.GetAll().Data)
+            {
+                Console.WriteLine("Şirket adı: {0}", customer.CompanyName);
             }
         }
 
