@@ -17,9 +17,9 @@ namespace ConsoleUI
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             RentalManager rentalManager = new RentalManager(new EfRentalDal(), new EfCarDal());
 
-            CarOperations(carManager);
-            ColorOperations(colorManager);
-            BrandOperations(brandManager);
+           // CarOperations(carManager);
+           // ColorOperations(colorManager);
+           // BrandOperations(brandManager);
             UserOperations(userManager);
 
         }
@@ -48,8 +48,12 @@ namespace ConsoleUI
             ListUsers(userManager);
 
 
-            userManager.Delete(newUser);
+           /* userManager.Delete(newUser);
             Console.WriteLine("\n" + newUser.FirstName + " silindi");
+            ListUsers(userManager);*/
+
+            userManager.Add(new User { FirstName="Ayşe",LastName="Can",Email="aysecan@gmail.com", Password="123456"});
+            Console.WriteLine("\nAyşe Eklendi.");
             ListUsers(userManager);
         }
 
