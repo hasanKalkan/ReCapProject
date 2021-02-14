@@ -22,7 +22,26 @@ namespace ConsoleUI
             // BrandOperations(brandManager);
             //UserOperations(userManager);
             //CustomerOperations(customerManager);
+            RentalOperations(carManager, rentalManager);
 
+            
+
+        }
+
+        private static void RentalOperations(CarManager carManager, RentalManager rentalManager)
+        {
+            Rental rental1 = new Rental { CustomerId = 1, RentDate = DateTime.Now, CarId = 6 };
+            rentalManager.Add(rental1, carManager.GetById(rental1.CarId).Data);
+            ListRentDetails(rentalManager);
+        }
+
+        private static void ListRentDetails(RentalManager rentalManager)
+        {
+            foreach (var rental in rentalManager.GetRentalDetail().Data)
+            {
+                Console.WriteLine("\nAraç: {0}, {1} isimli şirkete {2} tarihinde kiralandı.Dönüş tarihi: {3}", rental.Description, rental.CompanyName, rental.RentDate, rental.ReturnDate);
+
+            }
         }
 
         private static void CustomerOperations(CustomerManager customerManager)
