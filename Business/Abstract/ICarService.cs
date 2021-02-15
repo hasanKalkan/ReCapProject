@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core.Data_Access;
+using Core.Entities;
 using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -8,7 +9,8 @@ using System.Text;
 
 namespace Business.Abstract
 {
-    public interface ICarService 
+    public interface ICarService
+        //:IEntityServiceBase<Car>
     {
         IResult Add(Car car);
         IResult Update(Car car);
@@ -18,6 +20,7 @@ namespace Business.Abstract
         IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
         IDataResult<List<CarDetailDto>> GetCarDetails();
         IDataResult<List<Car>> GetAvailableCars();
+        IDataResult<List<Car>> GetAll();
     }
 }
 

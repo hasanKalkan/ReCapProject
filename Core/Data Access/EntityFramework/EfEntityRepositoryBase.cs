@@ -70,5 +70,6 @@ namespace Core.Data_Access.EntityFramework
                 return context.Set<TEntity>().SingleOrDefault(filter);
             }
         }
+
     }
 }

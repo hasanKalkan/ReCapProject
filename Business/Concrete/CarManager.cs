@@ -16,10 +16,11 @@ namespace Business.Concrete
         private ICarDal _carDal;
         private ICarCheckService _carCheckService;
 
-        public CarManager(ICarDal carDal, ICarCheckService carCheckService)
+        public CarManager(ICarDal carDal)
+            //, ICarCheckService carCheckService)
         {
             _carDal = carDal;
-            _carCheckService = carCheckService;
+          //  _carCheckService = carCheckService;
         }
 
         public IDataResult<List<Car>> GetAll()

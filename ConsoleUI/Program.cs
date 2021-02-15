@@ -10,19 +10,19 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-            CarManager carManager = new CarManager(new EfCarDal(), new CheckRules());
+            CarManager carManager = new CarManager(new EfCarDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             UserManager userManager = new UserManager(new EfUserDal());
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            RentalManager rentalManager = new RentalManager(new EfRentalDal(), new EfCarDal());
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
 
             // CarOperations(carManager);
             // ColorOperations(colorManager);
-            // BrandOperations(brandManager);
+             BrandOperations(brandManager);
             //UserOperations(userManager);
             //CustomerOperations(customerManager);
-            RentalOperations(carManager, rentalManager);
+            //RentalOperations(carManager, rentalManager);
 
             
 
@@ -31,7 +31,7 @@ namespace ConsoleUI
         private static void RentalOperations(CarManager carManager, RentalManager rentalManager)
         {
             Rental rental1 = new Rental { CustomerId = 1, RentDate = DateTime.Now, CarId = 6 };
-            rentalManager.Add(rental1, carManager.GetById(rental1.CarId).Data);
+            rentalManager.Add(rental1);
             ListRentDetails(rentalManager);
         }
 

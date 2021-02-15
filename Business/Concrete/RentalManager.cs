@@ -13,30 +13,14 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
-        ICarDal _carDal;
-        public RentalManager(IRentalDal rentalDal, ICarDal carDal)
+        public RentalManager(IRentalDal rentalDal)
         {
             _rentalDal = rentalDal;
-            _carDal = carDal;
         }
-        public IResult Add(Rental rental,Car car)
+        public IResult Add(Rental rental)
         {
-            car = _carDal.Get(c => c.Id == rental.CarId);
-            if (car.IsAvailable == false)
-            {
-                return new ErrorResult(Messages.CarIsNotAvailable);
-            }
-            try
-            {
-                _rentalDal.Add(rental);
-                car.IsAvailable = false;
-                _carDal.Update(car);
-                return new SuccessResult(Messages.RentalAdded);
-            }
-            catch (Exception)
-            {
-                return new ErrorResult(Messages.RentalError);
-            }
+            _rentalDal.Add(rental);
+                return new SuccessResult(Messages.RentalAdded);           
         }
 
         public IResult Delete(Rental rental)
