@@ -13,7 +13,8 @@ namespace Business.Concrete
 {
     public class BrandManager : IBrandService
     {
-        private IBrandDal _brandDal;
+        IBrandDal _brandDal;
+
         public BrandManager(IBrandDal brandDal)
         {
             _brandDal = brandDal;
@@ -22,50 +23,33 @@ namespace Business.Concrete
         [ValidationAspect(typeof(BrandValidator))]
         public IResult Add(Brand brand)
         {
-            //if (brand.Name.Length > 2)
-            //{
-                _brandDal.Add(brand);
-            //    return new SuccessResult(Messages.BrandAdded);
-            //}
-            //else
-            //{
-               return new ErrorResult(Messages.BrandNameInvalid);
-            //}
+
+            _brandDal.Add(brand);
+            return new SuccessResult(Messages.AddedBrand);
+
         }
 
         public IResult Delete(Brand brand)
         {
             _brandDal.Delete(brand);
-            return new SuccessResult(Messages.BrandDeleted);
+            return new SuccessResult(Messages.DeletedBrand);
         }
 
         public IDataResult<List<Brand>> GetAll()
         {
-            if (DateTime.Now.Hour == 22)
-            {
-                return new ErrorDataResult<List<Brand>>(Messages.MaintenanceTime);
-            }
-
-            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(), Messages.Listed);
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
         public IDataResult<Brand> GetById(int id)
         {
-            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.Id == id));
+            return new SuccessDataResult<Brand>(_brandDal.Get(c => c.BrandId == id));
         }
 
         [ValidationAspect(typeof(BrandValidator))]
         public IResult Update(Brand brand)
         {
-            //if (brand.Name.Length > 2)
-            //{
-                _brandDal.Update(brand);
-                return new SuccessResult(Messages.BrandUpdated);
-            //}
-            //else
-            //{
-                //return new ErrorResult(Messages.BrandNameInvalid);
-            //}
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.UpdatedBrand);
         }
     }
 }

@@ -13,26 +13,24 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car, ReCapProjectContext>, ICarDal
     {
-        public List<CarDetailDto> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {
             using (ReCapProjectContext context = new ReCapProjectContext())
             {
-                var result = from c in context.Cars
-                             join br in context.Brands
-                             on c.BrandId equals br.Id
+                var result = from c in filter == null ? context.Cars : context.Cars.Where(filter)
                              join co in context.Colors
-                             on c.ColorId equals co.Id
+                             on c.ColorId equals co.ColorId
+                             join b in context.Brands
+                             on c.BrandId equals b.BrandId
                              select new CarDetailDto
                              {
-                                 Id = c.Id,
-                                 BrandName = br.Name,
-                                 ColorName = co.Name,
-                                 Description=c.Description,
-                                 ModelYear=c.ModelYear,
-                                 DailyPrice = c.DailyPrice                                
-                                                               
+                                 CarId = c.CarId,
+                                 BrandName = b.BrandName,
+                                 ColorName = co.ColorName,
+                                 DailyPrice = c.DailyPrice,
+                                 Description = c.Description,
+                                 ModelYear = c.ModelYear
                              };
-
                 return result.ToList();
             }
         }

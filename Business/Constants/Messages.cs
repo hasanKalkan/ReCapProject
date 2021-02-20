@@ -6,34 +6,35 @@ namespace Business.Constants
 {
     public static class Messages
     {
-        public static string CarAdded = "Araba başarı Eklendi.";
-        public static string CarNameInvalid = "Araba ismi en az 2 karakterden oluşmalıdır ve günlük fiyat 0 dan düşük olamaz. ";
-        public static string MaintenanceTime = "Sistem bakımda.";
-        public static string CarsListed = "Arabalar listelendi.";
-        public static string CarUpdated = "Araba başarı ile güncellendi.";
-        public static string CarDeleted = "Araba başarı ile silindi.";
-        public static string BrandDeleted = "Marka başarı ile silindi.";
-        public static string BrandUpdated = "Marka başarı ile güncellendi.";
-        public static string BrandAdded = "Marka başarı ile eklendi.";
-        public static string ColorDeleted = "Renk başarı ile silindi.";
-        public static string ColorUpdated = "Renk başarı ile güncellendi.";
-        public static string ColorAdded = "Renk başarı ile eklendi.";
-        public static string ColorNameInvalid = "Renk ismi en az 2 karakterden oluşmalıdır";
-        public static string BrandNameInvalid = "Marka ismi en az 2 karakterden oluşmalıdır";
-        public static string Listed = "Başarı ile listeleme yapıldı.";
-        public static string CustomerAdded = "Müşteri başarıyla eklendi.";
-        public static string CustomerDeleted = "Müşteri başarıyla silindi.";
-        public static string CustomerUpdated = "Müşteri başarıyla güncellendi..";
-        public static string CustomerError = "Müşteri işlemlerinde hata oluştu !";
-        public static string RentalError = "Kiralama işleminde hata oluştu !";
-        public static string CarIsNotAvailable = "Araç müsait değil !";
-        public static string RentalAdded = "Kiralama işlemi başarıyla oluşturuldu.";
-        public static string RentalDeleted = "Kiralama işlemi başarıyla silindi.";
-        public static string RentalUpdated= "Kiralama işlemi başarıyla güncellendi.";
-        public static string UserAdded = "Kullanıcı başarıyla oluşturuldu.";
-        public static string UserDeleted = "Kullanıcı başarıyla silindi.";
-        public static string UserUpdated = "Kullanıcı başarıyla güncellendi.";
-        public static string UserError = "Kullanıcı işleminde hata oluştu !";
+        public static string AddedBrand = "Marka başarıyla eklendi.";
+        public static string DeletedBrand = "Marka başarıyla silindi.";
+        public static string UpdatedBrand = "Marka başarıyla güncellendi.";
+        public static string FailedBrandAddOrUpdate = "Lütfen marka isminin uzunluğunu 2 karakterden fazla giriniz.";
+
+        public static string AddedCar = "Araba başarıyla eklendi.";
+        public static string DeletedCar = "Araba başarıyla silindi.";
+        public static string UpdatedCar = "Araba başarıyla güncellendi.";
+        public static string FailedCarAddOrUpdate = "Lütfen günlük fiyat kısmını 0'dan büyük giriniz.";
+
+        public static string AddedColor = "Renk başarıyla eklendi.";
+        public static string DeletedColor = "Renk başarıyla silindi.";
+        public static string UpdatedColor = "Renk başarıyla güncellendi.";
+
+        public static string AddedCustomer = "Müşteri başarıyla eklendi.";
+        public static string DeletedCustomer = "Müşteri başarıyla silindi.";
+        public static string UpdatedCustomer = "Müşteri başarıyla güncellendi.";
+
+
+        public static string AddedUser = "Kullanıcı başarıyla eklendi.";
+        public static string DeletedUser = "Kullanıcı başarıyla silindi.";
+        public static string UpdatedUser = "Kullanıcı başarıyla güncellendi.";
+
+
+        public static string AddedRental = "Araba Kiralama işlemi baraşıyla gerçekleşti.";
+        public static string DeletedRental = "Araba Kiralama işlemi iptal edildi.";
+        public static string UpdatedRental = "Araba Kiralama işlemi güncellendi.";
+        public static string FailedRentalAddOrUpdate = "Bu araba henüz teslim edilmediği için kiralayamazsınız.";
+        public static string ReturnedRental = "Kiraladığınız araç teslim edildi.";
 
 
     }

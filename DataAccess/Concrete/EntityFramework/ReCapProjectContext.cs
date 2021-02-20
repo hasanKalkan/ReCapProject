@@ -24,7 +24,7 @@ namespace DataAccess.Concrete.EntityFramework
 
 
         //Custom Mapping
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+      /*  protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //fluent mapping
             // modelBuilder.HasDefaultSchema("admin"); //Default şema
@@ -32,6 +32,6 @@ namespace DataAccess.Concrete.EntityFramework
             //modelBuilder.Entity<Personel>().Property(p => p.Id).HasColumnName("EmployeeID"); //Sadece bir alanın ismini bağladık.
             //modelBuilder.Entity<Personel>().Property(p => p.Name).HasColumnName("FirstName"); //ilk bizim class taki isim
             //modelBuilder.Entity<Personel>().Property(p => p.SurName).HasColumnName("LasttName"); //ikincisi de veri tabanındaki isim
-        }
+        }*/
     }
 }

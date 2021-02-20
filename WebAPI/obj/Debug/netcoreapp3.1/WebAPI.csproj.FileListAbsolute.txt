@@ -25,7 +25,6 @@ C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Mic
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
-C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
@@ -64,3 +63,9 @@ C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Aut
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Autofac.Extras.DynamicProxy.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\EntityFramework.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.CodeDom.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\KALKAN\Documents\GitHub\ReCapProject\WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

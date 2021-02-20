@@ -55,10 +55,6 @@
               "target": "Package",
               "version": "[6.1.0, )"
             },
-            "Autofac.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.1.0, )"
-            },
             "Autofac.Extras.DynamicProxy": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -140,13 +136,17 @@
               "target": "Package",
               "version": "[6.0.0, )"
             },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[9.5.1, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.11, )"
+              "version": "[3.1.1, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -358,6 +358,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.1.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -37,9 +37,9 @@ namespace ConsoleUI
 
         private static void ListRentDetails(RentalManager rentalManager)
         {
-            foreach (var rental in rentalManager.GetRentalDetail().Data)
+            foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
-                Console.WriteLine("\nAraç: {0}, {1} isimli şirkete {2} tarihinde kiralandı.Dönüş tarihi: {3}", rental.Description, rental.CompanyName, rental.RentDate, rental.ReturnDate);
+                Console.WriteLine("\nAraç: {1} isimli şirkete {2} tarihinde kiralandı.Dönüş tarihi: {3}", rental.CustomerName, rental.RentDate, rental.ReturnDate);
 
             }
         }
@@ -48,7 +48,7 @@ namespace ConsoleUI
         {
             Customer newCustomer = new Customer()
             {
-                CompanyName = "CanYazılım",
+                CustomerName = "CanYazılım",
                 UserId = 18
             };
 
@@ -56,10 +56,10 @@ namespace ConsoleUI
             ListCustomers(customerManager);
 
             customerManager.Add(newCustomer);
-            Console.WriteLine("\n" + newCustomer.CompanyName + " eklendi.");
+            Console.WriteLine("\n" + newCustomer.CustomerName + " eklendi.");
             ListCustomers(customerManager);
 
-            customerManager.Add(new Customer() { CompanyName = "KodlamaIO", UserId = 19 });
+            customerManager.Add(new Customer() { CustomerName = "KodlamaIO", UserId = 19 });
             Console.WriteLine("KodlamaIO eklendi.");
             ListCustomers(customerManager);
         }
@@ -102,18 +102,18 @@ namespace ConsoleUI
             Console.WriteLine("\n\nMARKALAR------------------");
             ListBrands(brandManager);
 
-            Brand newBrand = new Brand() { Name = "Datsun" };
+            Brand newBrand = new Brand() { BrandName = "Datsun" };
             brandManager.Add(newBrand);
-            Console.WriteLine("\n" + newBrand.Name + " eklendi.");
+            Console.WriteLine("\n" + newBrand.BrandName + " eklendi.");
             ListBrands(brandManager);
 
-            newBrand.Name = "Plymouth";
+            newBrand.BrandName = "Plymouth";
             brandManager.Update(newBrand);
-            Console.WriteLine("\n" + newBrand.Name + " olarak güncellendi.");
+            Console.WriteLine("\n" + newBrand.BrandName + " olarak güncellendi.");
             ListBrands(brandManager);
 
             brandManager.Delete(newBrand);
-            Console.WriteLine("\n" + newBrand.Name + " silindi");
+            Console.WriteLine("\n" + newBrand.BrandName + " silindi");
             ListBrands(brandManager);
         }
 
@@ -122,24 +122,24 @@ namespace ConsoleUI
             Console.WriteLine("\nRENKLER----------------");
             ListColors(colorManager);
 
-            Color newColor = new Color() { Name = "Kahverengi" };
+            Color newColor = new Color() { ColorName = "Kahverengi" };
             colorManager.Add(newColor);
-            Console.WriteLine("\n\n" + newColor.Name + " eklendi.");
+            Console.WriteLine("\n\n" + newColor.ColorName + " eklendi.");
             ListColors(colorManager);
 
-            newColor.Name = "Lacivert";
+            newColor.ColorName = "Lacivert";
             colorManager.Update(newColor);
-            Console.WriteLine("\n\n" + newColor.Name + " olarak güncellendi.");
+            Console.WriteLine("\n\n" + newColor.ColorName + " olarak güncellendi.");
             ListColors(colorManager);
 
             colorManager.Delete(newColor);
-            Console.WriteLine("\n\n" + newColor.Name + " silindi.");
+            Console.WriteLine("\n\n" + newColor.ColorName + " silindi.");
             ListColors(colorManager);
         }
 
         private static void CarOperations(CarManager carManager)
         {
-            Car newCar = new Car() { BrandId = 1, ColorId = 3, ModelYear = 1965, DailyPrice = 2000, Description = "Ford Galaxy" };
+            Car newCar = new Car() { BrandId = 1, ColorId = 3, ModelYear = "1965", DailyPrice = 2000, Description = "Ford Galaxy" };
             Console.WriteLine("ARAÇLAR--------------");
             ListCars(carManager);
 
@@ -171,7 +171,7 @@ namespace ConsoleUI
         {
             foreach (var customer in customerManager.GetAll().Data)
             {
-                Console.WriteLine("Şirket adı: {0}", customer.CompanyName);
+                Console.WriteLine("Şirket adı: {0}", customer.CustomerName);
             }
         }
 
@@ -182,7 +182,7 @@ namespace ConsoleUI
             {
                 foreach (var car in result.Data)
                 {
-                    Console.WriteLine("Id: {0}, {1}, Renk: {2}, Marka: {3}, Model Yılı: {4}, Günlük Kiralama Bedeli: {5} TL.",car.Id,car.Description,car.ColorName,car.BrandName,car.ModelYear,car.DailyPrice);
+                    Console.WriteLine("Id: {0}, {1}, Renk: {2}, Marka: {3}, Model Yılı: {4}, Günlük Kiralama Bedeli: {5} TL.",car.CarId,car.Description,car.ColorName,car.BrandName,car.ModelYear,car.DailyPrice);
                 }
             }
             else
@@ -197,7 +197,7 @@ namespace ConsoleUI
             {
                 foreach (var color in result.Data)
                 {
-                    Console.Write(color.Name+", ");
+                    Console.Write(color.ColorName + ", ");
                 }
 
             }
@@ -213,7 +213,7 @@ namespace ConsoleUI
             {
                 foreach (var brand in result.Data)
                 {
-                    Console.Write(brand.Name+", ");
+                    Console.Write(brand.BrandName + ", ");
                 }
                 Console.WriteLine(result.Message);
             }

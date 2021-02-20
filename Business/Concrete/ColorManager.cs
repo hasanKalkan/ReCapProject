@@ -13,54 +13,44 @@ namespace Business.Concrete
 {
     public class ColorManager : IColorService
     {
-        private IColorDal _colorDal;
-        public ColorManager(IColorDal colorDal)
+        IColorDal _colorDal;
+
+        public ColorManager(IColorDal brandDal)
         {
-            _colorDal = colorDal;
+            _colorDal = brandDal;
         }
 
         [ValidationAspect(typeof(ColorValidator))]
-        public IResult Add(Color color)
+        public IResult Add(Color entity)
         {
-            //if (color.Name.Length > 2)
-            //{
-                _colorDal.Add(color);
-                return new SuccessResult(Messages.ColorAdded);
-            //}
-            //else
-            //{
-            //    return new ErrorResult(Messages.ColorNameInvalid);
-            //}
+            _colorDal.Add(entity);
+            return new SuccessResult(Messages.AddedColor);
         }
 
         public IResult Delete(Color color)
         {
             _colorDal.Delete(color);
-            return new SuccessResult(Messages.ColorDeleted);
+            return new SuccessResult(Messages.DeletedColor);
+
         }
 
         public IDataResult<List<Color>> GetAll()
         {
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll());
+
         }
 
         public IDataResult<Color> GetById(int id)
         {
-            return new SuccessDataResult<Color>(_colorDal.Get(color => color.Id == id));
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == id));
         }
 
         [ValidationAspect(typeof(ColorValidator))]
-        public IResult Update(Color color)
+        public IResult Update(Color entity)
         {
-            //if (color.Name.Length > 2)
-            //{
-                _colorDal.Update(color);
-                return new SuccessResult(Messages.ColorUpdated);
-            //}
-            //else
-            //{
-            //    return new ErrorResult(Messages.ColorNameInvalid);
-            //}
+            _colorDal.Update(entity);
+            return new SuccessResult(Messages.UpdatedColor);
+
         }
     }
 }
